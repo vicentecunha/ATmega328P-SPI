@@ -1,6 +1,5 @@
 //-----------------------------------------------------------------------------
 // ATmega328p SPI 
-//		- with detailed register descriptions.
 //	Author: Vicente Cunha
 //	Date: june 2015
 //	License: WTFPL
