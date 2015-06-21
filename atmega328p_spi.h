@@ -27,7 +27,7 @@
 #define GLOBAL_INTERRUPT_ENABLE		SREG |=  (1 << I)
 #define GLOBAL_INTERRUPT_DISABLE	SREG &= ~(1 << I)
 #define SPI_INTERRUPT_ENABLE		SPCR |=  (1 << SPIE);\
-							GLOBAL_INTERRUPT_ENABLE
+						GLOBAL_INTERRUPT_ENABLE
 #define SPI_INTERRUPT_DISABLE		SPCR &= ~(1 << SPIE)
 //-----------------------------------------------------------------------------
 //	SPI enabling macros:
