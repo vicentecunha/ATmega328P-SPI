@@ -27,7 +27,7 @@
 #define GLOBAL_INTERRUPT_ENABLE		SREG |=  (1 << I)
 #define GLOBAL_INTERRUPT_DISABLE	SREG &= ~(1 << I)
 #define SPI_INTERRUPT_ENABLE		SPCR |=  (1 << SPIE);\
-									GLOBAL_INTERRUPT_ENABLE
+								GLOBAL_INTERRUPT_ENABLE
 #define SPI_INTERRUPT_DISABLE		SPCR &= ~(1 << SPIE)
 //-----------------------------------------------------------------------------
 //	SPI enabling macros:
@@ -62,20 +62,20 @@ char SPI_DUMMY;
 //-----------------------------------------------------------------------------
 #define SPI_DOUBLE_SPEED	SPSR |=  (1 << SPI2X)
 #define SPI_SINGLE_SPEED	SPSR &= ~(1 << SPI2X)
-#define SPI_CLOCK_DIVIDER_2		SPCR &= ~((1 << SPR1)|(1 << SPR0));\
-								SPI_DOUBLE_SPEED
-#define SPI_CLOCK_DIVIDER_4		SPCR &= ~((1 << SPR1)|(1 << SPR0));\
-								SPI_SINGLE_SPEED
-#define SPI_CLOCK_DIVIDER_8		SPCR &= ~(1 << SPR1); SPCR |= (1 << SPR0);\
-								SPI_DOUBLE_SPEED
+#define SPI_CLOCK_DIVIDER_2	SPCR &= ~((1 << SPR1)|(1 << SPR0));\
+							SPI_DOUBLE_SPEED
+#define SPI_CLOCK_DIVIDER_4	SPCR &= ~((1 << SPR1)|(1 << SPR0));\
+							SPI_SINGLE_SPEED
+#define SPI_CLOCK_DIVIDER_8	SPCR &= ~(1 << SPR1); SPCR |= (1 << SPR0);\
+							SPI_DOUBLE_SPEED
 #define SPI_CLOCK_DIVIDER_16	SPCR &= ~(1 << SPR1); SPCR |= (1 << SPR0);\
-								SPI_SINGLE_SPEED
+							SPI_SINGLE_SPEED
 #define SPI_CLOCK_DIVIDER_32	SPCR |= (1 << SPR1); SPCR &= ~(1 << SPR0);\
-								SPI_DOUBLE_SPEED
+							SPI_DOUBLE_SPEED
 #define SPI_CLOCK_DIVIDER_64	SPCR |= (1 << SPR1); SPCR &= ~(1 << SPR0);\
-								SPI_SINGLE_SPEED
+							SPI_SINGLE_SPEED
 #define SPI_CLOCK_DIVIDER_128	SPCR |= ((1 << SPR1)|(1 << SPR0));\
-								SPI_SINGLE_SPEED
+							SPI_SINGLE_SPEED
 //-----------------------------------------------------------------------------
 //	Mode selection macros:
 //-----------------------------------------------------------------------------
@@ -97,9 +97,9 @@ char SPI_DUMMY;
 //-----------------------------------------------------------------------------
 //	Common usage macros:
 //-----------------------------------------------------------------------------
-#define SPI_SET_SS					PORTB |=  (1 << PORTB2)
-#define SPI_LOWER_SS				PORTB &= ~(1 << PORTB2)
+#define SPI_SET_SS			PORTB |=  (1 << PORTB2)
+#define SPI_LOWER_SS			PORTB &= ~(1 << PORTB2)
 #define SPI_TRANSMIT_BYTE(BYTE)		SPDR = BYTE
 #define SPI_WAIT_TRANSMISSION		while(!(SPSR & (1<<SPIF)))
-#define SPI_RECEIVED_BYTE			SPDR
+#define SPI_RECEIVED_BYTE		SPDR
 #endif
